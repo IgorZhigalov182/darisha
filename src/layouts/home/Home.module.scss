@@ -1,0 +1,34 @@
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url(../../public/home_main.jpg);
+    filter: brightness(60%);
+    height: 90vh;
+    background-size: cover;
+
+    .home_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        color: #ffffff;
+
+        .home_name {
+            font-size: 80px;
+            font-weight: 700;
+        }
+
+        .home_tag {
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    section {
+        height: 93vh;
+        margin-top: 7vh;
+    }
+}
