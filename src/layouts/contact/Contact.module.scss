@@ -6,7 +6,9 @@
     display: flex;
     justify-content: center;
     padding: 100px;
-    font-size: 56px;
+    font-size: 44px;
+    color: $dark-grey;
+    font-weight: 600;
 }
 
 .title {
@@ -19,4 +21,5 @@
     display: flex;
     gap: 10px;
     font-size: 16px;
+    color: $dark-grey;
 }

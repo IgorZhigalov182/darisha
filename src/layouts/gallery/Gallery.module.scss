@@ -9,7 +9,9 @@
 .slider {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    grid-template-areas: 
+        'item item item'
+        'item item item';
 }
 
 .img_container {
@@ -43,17 +45,23 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    background-color: black;
-    opacity: 0.3;
-}
-
-.carousel_navigation {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.3);;
     position: absolute;
     top: 0;
-    left: 0;
     z-index: 1;
+}
+
+.arrow_left {
+    left: 0;
+}
+
+.arrow_right {
+    right: 0;
+}
+
+.arrow_left:hover,
+.arrow_right:hover,
+.arrow_left svg:hover,
+.arrow_right svg:hover {
+    cursor: pointer;
 }
