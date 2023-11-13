@@ -4,7 +4,7 @@ import Navbar from './components/header/Navbar';
 import About from './layouts/about/About';
 import Contact from './layouts/contact/Contact';
 import Cover from './layouts/home/Home';
-import Works from './layouts/works/Works';
+import Gallery from './layouts/gallery/Gallery';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Cover />
       <Navbar />
       <About />
-      <Works />
+      <Gallery />
       <Contact />
     </>
   );
