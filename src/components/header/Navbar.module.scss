@@ -9,7 +9,7 @@ nav {
     background-color: #ffffff;
     position: sticky;
     top: 0px;
-    z-index: 1000000;
+    z-index: 100;
 
     .nav_wrapper {
         display: flex;
@@ -27,7 +27,6 @@ nav {
         .nav_ul_wrapper {
             .nav_ul {
                 display: flex;
-
             }
 
             .nav_li {
@@ -56,10 +55,6 @@ nav {
             display: none;
         }
     }
-
-    // .nav_ul_wrapper {
-
-    // }
 }
 
 // @media (max-width: 1200px) {
