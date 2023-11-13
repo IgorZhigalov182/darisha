@@ -109,6 +109,23 @@
             }
         }
     }
+
+    .modal_video.enter-active {
+        animation: scroll-down 2s ease-in-out infinite;
+    }
+    
+    .modal_video.enter-done {
+        animation: scroll-down 2s ease-in-out infinite;
+        background-color: green;
+    }
+
+    // .modal_video.exit-active {
+    //     animation: ;
+    // }
+
+    // .modal_video.exited {
+    //     animation: ;
+    // }
 }
 
 
@@ -159,3 +176,4 @@
         transform-origin: bottom;
     }
 }
+
