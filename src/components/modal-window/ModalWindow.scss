@@ -4,12 +4,13 @@
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
+    // bottom: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transform: (0);
+    // transform: (0);
     transition: 0.5s;
     pointer-events: none;
 }
@@ -22,8 +23,8 @@
   
 .modalWindow__content {
   // padding: 20px;
-  border-radius: 12px;
-  background-color: white;
+  border-radius: 5px;
+  // background-color: transparent;
   width: 70vw;
   height: 75vh;
   transform: scale(0.5);
@@ -36,14 +37,14 @@
   transition: 0.5s;
 }
   
-// .modalFormWrapper {
-//   display: flex;
-//     flex-direction: column;
-//     align-self: center;
-//     width: 60%;
-//     margin: 0 auto;
-//     z-index: 200;
-// }
+.modalFormWrapper {
+  display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+    margin: 0 auto;
+    z-index: 200;
+}
 
 // @media (max-width: 1200px) {
 
@@ -53,11 +54,23 @@
 
 // }
 
-// @media (max-width: 768px) {
-//   .modalWindow__content.active {
-//     width: 70vw; 
-//   }
-// }
+@media (max-width: 768px) {
+  .modalWindow__content {
+    border-radius: 5px;
+    width: 70vw;
+    height: 35vh;
+    transition: 0.9s all;
+    transform: scale(0.15);  
+    z-index: 200;
+  }
+
+  .modalWindow__content.active {
+    width: 100vw;
+    height: 35vh; 
+    transform: scale(1);
+    transition: 0.9s all;
+  }
+}
 
 // @media (max-width: 576px) {
 //   .modalWindow__content.active {
