@@ -16,19 +16,19 @@ const Navbar = () => {
     { name: 'КУПИТЬ', state: false, href: '#buy' },
   ]);
 
-  const setActiveLi = (e) => {
-    const actualNavBar = sections.map(({ name, state, href }) => {
-      state = false;
+  // const setActiveLi = (e) => {
+  //   const actualNavBar = sections.map(({ name, state, href }) => {
+  //     state = false;
 
-      if (name.toUpperCase() === e.toUpperCase()) {
-        state = true;
-      }
+  //     if (name.toUpperCase() === e.toUpperCase()) {
+  //       state = true;
+  //     }
 
-      return { name, state, href };
-    });
+  //     return { name, state, href };
+  //   });
 
-    setActiveSection(actualNavBar);
-  };
+  //   setActiveSection(actualNavBar);
+  // };
 
   useEffect(() => {
     window.addEventListener('scroll', () => setScroll(window.scrollY));
@@ -97,10 +97,7 @@ const Navbar = () => {
                   <li
                     className={state ? 'nav_li_active' : 'nav_li'}
                     key={index}
-                    onClick={(e) => {
-                      // setActiveLi(e.target.innerText);
-                      setActive(!active);
-                    }}>
+                    onClick={(e) => setActive(!active)}>
                     <a key={href} href={href}>
                       {name}
                     </a>
