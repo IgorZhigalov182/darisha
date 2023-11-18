@@ -19,9 +19,9 @@ nav {
         width: 80%;
 
         .nav_logo {
-            width: 60px;
-            height: 40px;
-            margin-bottom: 10px;
+            width: 75px;
+            height: 55px;
+            margin-bottom: 5px;
         }
 
         .nav_ul_wrapper {
@@ -30,25 +30,29 @@ nav {
             }
 
             .nav_li {
-                font-size: 14px;
-                text-transform: uppercase;
-                margin-right: 25px;
-                color: $primary;
-
-                &:hover {
-                    cursor: pointer;
+                a{
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    margin-right: 25px;
+                    color: $primary;
+    
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
 
             .nav_li_active {
-                color: #bfbfbf;
-                font-size: 14px;
-                text-transform: uppercase;
-                margin-right: 25px;
-                transition: 0.4s;
-
-                &:hover {
-                    cursor: pointer;
+                a{
+                    color: #bfbfbf;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    margin-right: 25px;
+                    transition: 0.4s;
+    
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }

@@ -1,10 +1,13 @@
 @font-face {
-    font-family: 'Raleway';
-    src: local('Raleway'),
-      url('../public/fonts/Raleway-Medium.ttf') format('truetype');
-    font-weight: 500;
+  font-family: 'Raleway';
+  src: local('Raleway'), url('../public/fonts/Raleway-Medium.ttf') format('truetype');
+  font-weight: 500;
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
+
+#root {
+  scroll-behavior: smooth;
 }
