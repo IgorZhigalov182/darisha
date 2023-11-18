@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './Gallery.module.scss';
 
-const Slide = ({data, visible}) => {
+const Slide = ({ data, visible }) => {
   return (
     <div className={styles.slider}>
       {data?.map((src, index) => (
@@ -17,7 +17,7 @@ const Slide = ({data, visible}) => {
       <div className={styles.text_container} />
     </div>
   );
-}
+};
 
 const getPicsSrc = (picNumber, picNumberOnSlide) => {
   const data = [];
@@ -61,27 +61,48 @@ const Gallery = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="gallery">
       <div className={styles.carousel}>
-        {
-          data?.map((slide, index) => (<div style={{ transform: translateX }}
-            className={styles.slider_container}
-            key={index} >
-            <Slide 
-            visible={currentSlide === index ? true : false} 
-            data={slide} 
-            index={index}/>
-          </div>))
-        }
+        {data?.map((slide, index) => (
+          <div style={{ transform: translateX }} className={styles.slider_container} key={index}>
+            <Slide visible={currentSlide === index ? true : false} data={slide} index={index} />
+          </div>
+        ))}
       </div>
       <div onClick={previousSlide} className={`${styles.carousel_arrow} ${styles.arrow_left}`}>
-        <svg height='25px' width='25px' className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-          <path stroke="#B2B2B2" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
+        <svg
+          height="25px"
+          width="25px"
+          className="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 8 14">
+          <path
+            stroke="#B2B2B2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1"
+            d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
+          />
         </svg>
       </div>
       <div onClick={nextSlide} className={`${styles.carousel_arrow} ${styles.arrow_right}`}>
-        <svg height='25px' width='25px' className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-          <path stroke="#B2B2B2" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"/>
+        <svg
+          height="25px"
+          width="25px"
+          className="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 8 14">
+          <path
+            stroke="#B2B2B2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1"
+            d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
+          />
         </svg>
       </div>
 
