@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <section className={style.home_section}>
       <div className={style.home_wrapper}>
-        <h1 className={style.home_name}>Дариша</h1>
+        <h1 className={style.home_name}>ДАРИША</h1>
         <div className={style.home_play} onClick={() => setActive(!active)}>
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>
