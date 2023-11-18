@@ -34,6 +34,7 @@ nav {
                 text-transform: uppercase;
                 margin-right: 25px;
                 color: $primary;
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -45,6 +46,7 @@ nav {
                 text-transform: uppercase;
                 margin-right: 25px;
                 transition: 0.4s;
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -57,24 +59,11 @@ nav {
     }
 }
 
-// @media (max-width: 1200px) {
-//     .nav_wrapper {
-//         width: 1170px;
-//     }
-// }
-
-// @media (max-width: 992px) {
-//     .nav_wrapper {
-//         width: 970px;
-//     }
-// }
-
 @media (max-width: 768px) {
     nav {
         position: absolute;
         top: 0;
-        // height: 55px;
-        height: 7vh;
+        height: 9vh;
         
         .nav_wrapper { 
             .nav_ul_wrapper {
@@ -84,15 +73,58 @@ nav {
             .nav_burger {
                 display: flex;
                 color: black;
+
+                .nav_ul_modal {
+                    width: 12px;
+                }
             }
         }
     }
 
-    
+    .nav_top {
+        background-color: transparent;
+        box-shadow: none;
+        position: absolute;
+        top: 0px;
+        padding-top: 25px;
+        transition: .7s;
+    }
+
+    .mobile_nav {
+        position: fixed;
+        top: 0px;
+        transition: .7s;
+        animation: appearanceNavBar .4s;
+    }
 }
 
-// @media (max-width: 576px) {
-//     .nav_wrapper {
-//         width: 1170px;
-//     }
-// }
+@keyframes show_menu {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes appearanceNavBar {
+    0%{
+        height: 11vh;   
+        opacity: 0;
+    }
+
+    50%{
+        height: 10vh;
+        opacity: 0.8;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}

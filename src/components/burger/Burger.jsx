@@ -1,8 +1,8 @@
 import style from './Burger.module.scss';
 
-const Burger = () => {
+const Burger = ({ active, setActive }) => {
   return (
-    <button className={style.menu_btn}>
+    <button onClick={() => setActive(!active)} className={style.menu_btn}>
       <span></span>
       <span></span>
       <span></span>

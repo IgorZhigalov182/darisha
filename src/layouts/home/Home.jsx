@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './Home.module.scss';
-import ModalWindow from '../../components/modalWindow/ModalWindow';
+import ModalWindow from '../../components/modal-window/ModalWindow';
+import SVG from 'react-inlinesvg';
 
 const Home = () => {
   const [active, setActive] = useState(false);
@@ -8,7 +9,10 @@ const Home = () => {
   return (
     <section className={style.home_section}>
       <div className={style.home_wrapper}>
-        <h1 className={style.home_name}>ДАРИША</h1>
+        <h1 className={style.home_name}>Дариша</h1>
+        {/* <SVG
+          style={{ marginTop: '-150px', width: '300px', height: '200px' }}
+          src="../public/logo.svg"></SVG> */}
         <div className={style.home_play} onClick={() => setActive(!active)}>
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>
