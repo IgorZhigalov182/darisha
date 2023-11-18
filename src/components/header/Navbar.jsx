@@ -16,55 +16,39 @@ const Navbar = () => {
     { name: 'КУПИТЬ', state: false, href: '#buy' },
   ]);
 
-  // const setActiveLi = (e) => {
-  //   const actualNavBar = sections.map(({ name, state, href }) => {
-  //     state = false;
-
-  //     if (name.toUpperCase() === e.toUpperCase()) {
-  //       state = true;
-  //     }
-
-  //     return { name, state, href };
-  //   });
-
-  //   setActiveSection(actualNavBar);
-  // };
-
   useEffect(() => {
     window.addEventListener('scroll', () => setScroll(window.scrollY));
     return () => window.removeEventListener('scroll', () => setScroll(window.scrollY));
   }, []);
 
+  const defineSection = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const actualNavBar = sections.map(({ name, state, href }) => {
+          state = false;
+
+          if (href.includes(entry.target.id)) {
+            state = true;
+          }
+
+          return { name, state, href };
+        });
+
+        setActiveSection(actualNavBar);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(defineSection, { threshold: 0.5 });
+
   useEffect(() => {
     const sectionsAll = document.querySelectorAll('section');
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const actualNavBar = sections.map(({ name, state, href }) => {
-              state = false;
-
-              if (href.includes(entry.target.id)) {
-                state = true;
-              }
-
-              return { name, state, href };
-            });
-
-            setActiveSection(actualNavBar);
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    sectionsAll.forEach((section) => {
-      observer.observe(section);
-    });
+    sectionsAll.forEach((section) => observer.observe(section));
   }, []);
 
   const isTopOfPage = scroll < 5 && document.documentElement.clientWidth < 768;
+
   const navClass = classnames(isTopOfPage ? style.nav_top : style.mobile_nav);
 
   return (
@@ -97,7 +81,7 @@ const Navbar = () => {
                   <li
                     className={state ? 'nav_li_active' : 'nav_li'}
                     key={index}
-                    onClick={(e) => setActive(!active)}>
+                    onClick={() => setActive(!active)}>
                     <a key={href} href={href}>
                       {name}
                     </a>
