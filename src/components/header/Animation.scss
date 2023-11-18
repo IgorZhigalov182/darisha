@@ -48,18 +48,21 @@
         }
 
         .nav_li {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: $primary;
-            overflow: hidden;
-            width: 40vw;
-
-            &:hover {
-                cursor: pointer;
+            a{
+                font-size: 14px;
+                text-transform: uppercase;
+                color: $primary;
+                overflow: hidden;
+                width: 40vw;
+    
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
 
         .nav_li_active {
+            a{
             color: #bfbfbf;
             font-size: 14px;
             text-transform: uppercase;
@@ -67,6 +70,7 @@
 
             &:hover {
                 cursor: pointer;
+            }
             }
         }
     }

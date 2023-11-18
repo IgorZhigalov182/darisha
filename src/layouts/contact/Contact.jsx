@@ -1,9 +1,9 @@
-import DotsBackground from "../../components/section-dots-background/DotsBackground";
+import DotsBackground from '../../components/section-dots-background/DotsBackground';
 import styles from './Contact.module.scss';
 
 const Contact = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="buy">
       <DotsBackground>
         <h1 className={styles.title}>
           please send an e-mail to contact@domainname.com or sign up to our newsletter bellow.

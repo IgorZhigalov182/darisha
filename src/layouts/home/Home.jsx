@@ -7,16 +7,24 @@ const Home = () => {
   const [active, setActive] = useState(false);
 
   return (
-    <section className={style.home_section}>
+    <section className={style.home_section} id="home">
       <div className={style.home_wrapper}>
-        <h1 className={style.home_name}>Дариша</h1>
-        {/* <SVG
-          style={{ marginTop: '-150px', width: '300px', height: '200px' }}
-          src="../public/logo.svg"></SVG> */}
+        <h1 className={style.home_name} style={{ textAlign: 'center', width: '90vw' }}>
+          Упаковать подарок оригинально? <br /> Легко!
+        </h1>
+        {/* <h1 className={style.home_name}>
+          <SVG
+            style={{ marginTop: '-250px', width: '300px', height: '200px' }}
+            src="../public/logo.svg"></SVG>
+        </h1> */}
         <div className={style.home_play} onClick={() => setActive(!active)}>
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>
-        <h5 className={style.home_tag}>#Дари с удовольствием</h5>
+        <h5 className={style.home_tag} style={{ textAlign: 'center' }}>
+          Льняной мешочек-кашпо "Дариша" <br /> поможет вам красиво оформить деньги, сладости и даже
+          цветы за 3 минуты. <br />
+          Открытки и тесьма в комплекте!
+        </h5>
       </div>
       <div className={style.home_scrol}>
         <div className={style.home_scrol_wrapper}>
