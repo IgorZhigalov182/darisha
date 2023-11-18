@@ -1,24 +1,44 @@
 @import '../../styles/variables.scss';
 
 .container {
-    width: 100%;
     height: $section-height;
+    width: 100%;
     position: relative;
+    font-size: 26px;
+    color: $primary;
+    font-weight: 600;
+}
+
+.carousel {
+    display: flex;
+    min-width: 100%;
+    overflow: hidden;
+}
+
+.slider_container {
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+    transition: 1.5s;
 }
 
 .slider {
+    height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-areas: 
-        'item item item'
-        'item item item';
+    grid-auto-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr 1fr;
+    grid-template-areas: "pic1 pic2 pic3" "pic4 desc pic5";
+    transition: 1s;
 }
 
 .img_container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.text_container {
+    grid-area: desc;
 }
 
 .img_cut {
@@ -40,23 +60,49 @@
     transition: all 1s ease-in-out;
 }
 
-.carousel_arrow {
-    width: 80px;
-    height: 100%;
+.carousel_text {
+    width: calc(100vw / 3);
+    height: calc((100vh - $header-height) / 2);
+    padding: 10px;
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.3);;
+    align-items: center;
     position: absolute;
-    top: 0;
+    bottom: 0;
+    left: calc(100vw / 3);
+}
+
+.highlight {
+    color: $green-highlight;
+}
+
+.carousel_arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgb(247, 247, 247, 0.8);
+    top: calc(50% - 25px);
     z-index: 1;
 }
 
 .arrow_left {
-    left: 0;
+    left: 20px;
 }
 
 .arrow_right {
-    right: 0;
+    right: 20px;
+}
+
+.arrow_left > svg {
+    padding-right: 4px;
+}
+
+.arrow_right > svg {
+    padding-left: 4px;
 }
 
 .arrow_left:hover,
@@ -64,4 +110,5 @@
 .arrow_left svg:hover,
 .arrow_right svg:hover {
     cursor: pointer;
+    background-color: rgb(247, 247, 247);
 }
