@@ -51,18 +51,32 @@ const Navbar = () => {
 
   const navClass = classnames(isTopOfPage ? style.nav_top : style.mobile_nav);
 
+  /*
+    @params (
+      href - id section in DOM: string,
+      isMobileMode: bool 
+      )
+  */
+  const scrollToSection = (href, isMobileMode) => {
+    const marginSection = isMobileMode ? 0.09 : 0.1;
+    const selectedHref = document.querySelector(href);
+    const yStartCoord = selectedHref.offsetTop - window.innerHeight * marginSection;
+    window.scroll(0, yStartCoord);
+  };
+
   return (
     <nav className={navClass}>
       <div className={style.nav_wrapper}>
         <div className={style.nav_logo}>
-          <SVG src={isTopOfPage ? '../public/logo_white.svg' : '../public/logo.svg'}></SVG>
+          {isTopOfPage && <SVG src={'../public/logo_white.svg'}></SVG>}
+          {!isTopOfPage && <SVG src={'../public/logo.svg'}></SVG>}
         </div>
         <div className={style.nav_ul_wrapper}>
           <ul className={style.nav_ul}>
             {sections.map(({ name, state, href }, index) => {
               return (
                 <li className={state ? style.nav_li_active : style.nav_li} key={index}>
-                  <a key={href} href={href}>
+                  <a key={href} onClick={() => scrollToSection(href)}>
                     {name}
                   </a>
                 </li>
@@ -82,7 +96,7 @@ const Navbar = () => {
                     className={state ? 'nav_li_active' : 'nav_li'}
                     key={index}
                     onClick={() => setActive(!active)}>
-                    <a key={href} href={href}>
+                    <a key={href} onClick={() => scrollToSection(href, true)}>
                       {name}
                     </a>
                   </li>

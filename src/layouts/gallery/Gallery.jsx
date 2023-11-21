@@ -1,21 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './Gallery.module.scss';
+import SideMenu from '../../components/side-menu/SideMenu';
+import { createPortal } from 'react-dom';
 
 const Slide = ({ data, visible }) => {
+  const [activeModalImage, setActiveModalImage] = useState(false);
+
+  const showImage = (img) => {
+    // setActiveModalImage(true);
+    // img.classList.remove(styles.img_animation);
+    // img.classList.add(styles.img_fullscreen);
+    // const navBar = document.querySelector('nav');
+    // navBar.style.display = 'none';
+    // console.log(navBar.style.display);
+  };
+
   return (
-    <div className={styles.slider}>
-      {data?.map((src, index) => (
-        <div key={index} className={styles.img_container}>
-          <img
-            style={{ gridArea: `pic${index}` }}
-            className={`${styles.img_cut} ${styles.img_animation}`}
-            alt="gallery"
-            src={src}
-          />
-        </div>
-      ))}
-      <div className={styles.text_container} />
-    </div>
+    <>
+      <div className={styles.slider}>
+        {data?.map((src, index) => (
+          <div key={index} className={styles.img_container}>
+            <img
+              style={{ gridArea: `pic${index}` }}
+              className={`${styles.img_cut} ${styles.img_animation}`}
+              alt="gallery"
+              src={src}
+              onClick={({ target }) => showImage(target)}
+            />
+          </div>
+        ))}
+        <div className={styles.text_container} />
+        {activeModalImage && <SideMenu />}
+      </div>
+    </>
   );
 };
 
@@ -34,6 +51,7 @@ const getPicsSrc = (picNumber, picNumberOnSlide) => {
 };
 
 const Gallery = () => {
+  const [activeModalImage, setActiveModalImage] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translateX, setTranslateX] = useState('translateX(0)');
   const picNumber = 20;
@@ -109,6 +127,13 @@ const Gallery = () => {
       <span className={styles.carousel_text}>
         #ДАРИ<span className={styles.highlight}>&nbsp;с удовольствием</span>
       </span>
+      {activeModalImage &&
+        createPortal(
+          <div style={{ width: '100vw', height: '100vh' }}>
+            This child is placed in the document body.
+          </div>,
+          document.body,
+        )}
     </section>
   );
 };

@@ -32,14 +32,17 @@ const Home = () => {
         </div>
       </div>
       <ModalWindow active={active} setActive={setActive}>
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/BvmDrjd-KAE?si=vrIqiIbvt5h2U8fB"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+        {active && (
+          <iframe
+            loading="lazy"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/BvmDrjd-KAE?si=vrIqiIbvt5h2U8fB"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        )}
       </ModalWindow>
     </section>
   );
