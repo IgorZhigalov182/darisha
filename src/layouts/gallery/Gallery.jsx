@@ -1,38 +1,51 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Gallery.module.scss';
 import SideMenu from '../../components/side-menu/SideMenu';
-import { createPortal } from 'react-dom';
+import ReactDOM from 'react-dom';
 
-const Slide = ({ data, visible }) => {
-  const [activeModalImage, setActiveModalImage] = useState(false);
+const modalRoot = document.getElementById("imageModal"); 
 
-  const showImage = (img) => {
-    // setActiveModalImage(true);
-    // img.classList.remove(styles.img_animation);
-    // img.classList.add(styles.img_fullscreen);
-    // const navBar = document.querySelector('nav');
-    // navBar.style.display = 'none';
-    // console.log(navBar.style.display);
+const ImageModal = ({ data, topPosition, onClose }) => {
+  return ReactDOM.createPortal((
+    <div onClick={onClose}
+      className={`${styles.modal_container} ${styles.invisible}`}
+      style={{ top: topPosition }}>
+      <img className={styles.modal_img} src={data.src} alt="gallery" />
+    </div>
+  ), modalRoot);
+}
+
+const Slide = ({ data,
+                 setShowImageModal,
+                 setCurrentModalData
+                }) => {
+  const openModal = (src, index) => {
+    setShowImageModal(true);
+    setCurrentModalData({
+      src: src,
+      slideNumber: index
+    });
+
+    document.body.style.overflow = 'hidden';
   };
 
   return (
-    <>
-      <div className={styles.slider}>
-        {data?.map((src, index) => (
-          <div key={index} className={styles.img_container}>
-            <img
-              style={{ gridArea: `pic${index}` }}
-              className={`${styles.img_cut} ${styles.img_animation}`}
-              alt="gallery"
-              src={src}
-              onClick={({ target }) => showImage(target)}
-            />
-          </div>
-        ))}
-        <div className={styles.text_container} />
-        {activeModalImage && <SideMenu />}
-      </div>
-    </>
+    <div 
+      className={styles.slider}>
+      {data?.map((src, index) => (
+        <div key={index}
+          className={styles.img_container}
+          onClick={() => {openModal(src, index)}}>
+          <img
+            style={{ gridArea: `pic${index}` }}
+            className={`${styles.img_cut} ${styles.img_animation}`}
+            alt="gallery"
+            src={src}
+          />
+        </div>
+      ))}
+      <div className={styles.text_container} />
+    </div>
   );
 };
 
@@ -51,7 +64,12 @@ const getPicsSrc = (picNumber, picNumberOnSlide) => {
 };
 
 const Gallery = () => {
-  const [activeModalImage, setActiveModalImage] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [currentModalData, setCurrentModalData] = useState({
+    src: null,
+    slideNumber: null
+  });
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translateX, setTranslateX] = useState('translateX(0)');
   const picNumber = 20;
@@ -78,12 +96,25 @@ const Gallery = () => {
       : setCurrentSlide(currentSlide + 1);
   };
 
+  const onClose = () => {
+    setShowImageModal(false);
+    setCurrentModalData({
+      src: null,
+      slideNumber: null
+    });
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <section className={styles.container} id="gallery">
       <div className={styles.carousel}>
         {data?.map((slide, index) => (
           <div style={{ transform: translateX }} className={styles.slider_container} key={index}>
-            <Slide visible={currentSlide === index ? true : false} data={slide} index={index} />
+            <Slide 
+              setCurrentModalData={setCurrentModalData}
+              setShowImageModal={setShowImageModal}
+              data={slide}
+              index={index} />
           </div>
         ))}
       </div>
@@ -127,13 +158,12 @@ const Gallery = () => {
       <span className={styles.carousel_text}>
         #ДАРИ<span className={styles.highlight}>&nbsp;с удовольствием</span>
       </span>
-      {activeModalImage &&
-        createPortal(
-          <div style={{ width: '100vw', height: '100vh' }}>
-            This child is placed in the document body.
-          </div>,
-          document.body,
-        )}
+      {
+        showImageModal && <ImageModal
+          onClose={onClose} 
+          data={currentModalData}
+          topPosition={window.scrollY}/>
+      }
     </section>
   );
 };
