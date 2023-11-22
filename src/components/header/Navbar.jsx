@@ -48,7 +48,6 @@ const Navbar = () => {
   }, []);
 
   const isTopOfPage = scroll < 5 && document.documentElement.clientWidth < 768;
-
   const navClass = classnames(isTopOfPage ? style.nav_top : style.mobile_nav);
 
   /*
