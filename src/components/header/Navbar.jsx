@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import style from './Navbar.module.scss';
 import './Animation.scss';
 import classnames from 'classnames';
@@ -57,7 +57,7 @@ const Navbar = () => {
       )
   */
   const scrollToSection = (href, isMobileMode) => {
-    const marginSection = isMobileMode ? 0.09 : 0.1;
+    const marginSection = isMobileMode ? 0.1 : 0.1;
     const selectedHref = document.querySelector(href);
     const yStartCoord = selectedHref.offsetTop - window.innerHeight * marginSection;
     window.scroll(0, yStartCoord);
@@ -67,8 +67,9 @@ const Navbar = () => {
     <nav className={navClass}>
       <div className={style.nav_wrapper}>
         <div className={style.nav_logo}>
-          {isTopOfPage && <SVG src={'../public/logo_white.svg'}></SVG>}
-          {!isTopOfPage && <SVG src={'../public/logo.svg'}></SVG>}
+          {isTopOfPage && <SVG src={'../../public/logo_white.svg'}></SVG>}
+          {!isTopOfPage && <SVG src={'../../public/logo_black.svg'}></SVG>}
+          {/* {isTopOfPage && <img src={'../../public/arrow-left.png'} />} */}
         </div>
         <div className={style.nav_ul_wrapper}>
           <ul className={style.nav_ul}>
