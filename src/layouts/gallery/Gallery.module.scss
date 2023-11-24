@@ -84,7 +84,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    background-color: rgb(247, 247, 247, 0.8);
+    background-color: $light-grey-with-opacity;
     top: calc(50% - 25px);
     z-index: 1;
 }
@@ -122,19 +122,115 @@
     justify-content: center;
     align-items: center;
     z-index: 200;
-    transition: opacity 1s;
 }
 
-.invisible {
-    opacity: 1;
+.modal_container_show {
+    animation: scale-up 200ms;
+}
+
+.modal_container_hide {
+    animation: scale-down 200ms;
 }
 
 .modal_img {
-    position: sticky;
     object-fit: cover;
-    height: 100%;
-    width: 100%;
 }
+
+.sidemenu_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 90px;
+    margin: 20px;
+    padding: 10px;
+    background-color: $light-grey-with-opacity;
+    border-radius: 5px;
+}
+
+.sidemenu_item {
+    display: flex;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.sidemenu_item:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.info_modal_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: center;
+    left: center;
+    min-width: 400px;
+    min-height: 400px;
+    padding: 25px;
+    background-color: $light-grey;
+    border-radius: 10px;
+}
+
+.info_modal_show {
+    animation: slide-in 1000ms;
+}
+
+.info_modal_hide {
+    animation: slide-out 1000ms;
+}
+
+.close_button {
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+}
+
+.close_button:hover {
+    cursor: pointer;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(150%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(150%);
+    }
+}
+
+@keyframes scale-up {
+    from {
+        transform: scale(3);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-down {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
 
 @media (max-width: 576px) {
     .slider {
