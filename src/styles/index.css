@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'Raleway';
-  src: local('Raleway'), url('../public/fonts/Raleway-Medium.ttf') format('truetype');
+  font-family: 'Vela';
+  src: local('Vela'), url('../public/fonts/ValaSans-Regular') format('otf');
   font-weight: 500;
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Vela', sans-serif;
 }
 
 #root {

@@ -45,3 +45,44 @@
         font-size: 0.75rem;
     }
 }
+
+@media (max-width: 800px) {
+    .container {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        font-size: 25px;
+    font-size: 1.85rem;
+    }
+}
+
+.second_title {
+    font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 1.4rem;
+    }
+    
+    .second_title {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 1.15rem;
+    }
+    
+    .second_title {
+        font-size: 0.75rem;
+    }
+}
