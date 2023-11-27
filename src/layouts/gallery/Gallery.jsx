@@ -111,7 +111,10 @@ const Gallery = () => {
       <Arrows next={nextSlide} previous={previousSlide}/>
 
       <span className={styles.carousel_text}>
-        #ДАРИ<span className={styles.highlight}>&nbsp;с удовольствием</span>
+        <span>Оригинальная</span>
+        <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
+        <span>&nbsp;Открытки и лента в комплекте!</span>
+        <span>"Дариша" - дари с удовольствием!</span>
       </span>
       {
         showImageModal && <ImageModal

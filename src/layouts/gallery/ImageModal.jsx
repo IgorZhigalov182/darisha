@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import styles from './Gallery.module.scss';
 import Arrows from './Arrows';
 import SideMenu from './SideMenu';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const InfoModal = ({ setShowInfoModal, children }) => {
     const [visible, setVisible] = useState(true);
