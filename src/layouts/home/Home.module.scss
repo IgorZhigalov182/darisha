@@ -16,6 +16,7 @@
     // filter: brightness(60%);
     height: 90vh;
     background-size: cover;
+    overflow: hidden;
 
     .home_wrapper {
         display: flex;
@@ -120,7 +121,7 @@
 
         .home_wrapper{
             .home_name {
-                font-size: 55px;
+                font-size: 30px;
                 font-weight: 700;
                 margin-bottom: 1.5rem;
             }
