@@ -116,7 +116,7 @@ const Gallery = () => {
           <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
           <span>&nbsp;Открытки и лента в комплекте!</span>
         </div>  
-        <span className={styles.text_small}>"Дариша" - дари с удовольствием!</span>
+        <span className={styles.text_small}>&laquo;Дариша&raquo; - дари с удовольствием!</span>
       </span>
       {
         showImageModal && <ImageModal
