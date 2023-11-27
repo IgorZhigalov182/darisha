@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <section className={style.home_section} id="home">
       <div className={style.home_wrapper}>
-        <h1 className={style.home_name} style={{ textAlign: 'center', width: '90vw' }}>
-          Упаковать подарок оригинально? <br /> Легко!
+        <h1 className={style.home_name}>
+          Упаковать подарок <br /> оригинально? <br /> Легко!
         </h1>
         {/* <h1 className={style.home_name}>
           <SVG
@@ -21,7 +21,7 @@ const Home = () => {
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>
         <h5 className={style.home_tag} style={{ textAlign: 'center' }}>
-          Льняной мешочек-кашпо "Дариша" <br /> поможет вам красиво оформить деньги, сладости и даже
+          Льняной мешочек-кашпо "Дариша" поможет вам <br /> красиво оформить деньги, сладости и даже
           цветы за 3 минуты. <br />
           Открытки и тесьма в комплекте!
         </h5>

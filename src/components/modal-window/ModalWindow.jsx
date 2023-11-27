@@ -1,4 +1,3 @@
-import React from 'react';
 import './ModalWindow.scss';
 
 const ModalWindow = ({ active, setActive, children }) => {

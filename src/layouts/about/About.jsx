@@ -6,9 +6,11 @@ const About = () => {
     <section className={styles.container} id="about">
       <DotsBackground>
         <h1 className={styles.title}>
-          simplicity is not a style, it is more a philosophy about how to design something more
-          effectively.
+          Набор «Дариша» это универсальное решение для <br /> оформления небольших подарков. Вы без
+          ножниц, скотча <br /> и клея самостоятельно легко и быстро сможете <br /> упаковать
+          сладости, сувениры, деньги и цветы в горшке.
         </h1>
+        <h3 className={styles.second_title}>«Дариша» - легко оформить, приятно дарить!</h3>
       </DotsBackground>
     </section>
   );
