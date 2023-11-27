@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import styles from './Gallery.module.scss';
 import Arrows from './Arrows';
 import SideMenu from './SideMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const InfoModal = ({ setShowInfoModal, children }) => {
     const [visible, setVisible] = useState(true);
@@ -65,6 +65,11 @@ const ImageModal = ({ data, currentData, topPosition, onClose }) => {
             setCurrentPic(0) :
             setCurrentPic(currentPic + 1);
     };
+
+    useEffect(() => {
+        document.getElementById('icons').style.display = 'none';
+        return () => document.getElementById('icons').style.display = 'block';
+    }, []);
 
     return ReactDOM.createPortal((
         <div
