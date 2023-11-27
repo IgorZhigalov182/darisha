@@ -38,9 +38,7 @@
             height: 60px;
             -moz-line-height: 0px;
             line-height: 75px;
-            margin-left: -10px;
             cursor: pointer;
-            // animation: fade 5s linear infinite;
             
             i {
                 cursor: pointer;
@@ -49,7 +47,7 @@
             &::after {
                 @include templateAnimate;
                 animation: pulse 2.5s ease-in infinite;
-                margin-top: -75px;
+                margin-top: -73px;
             }
 
             @-moz-document url-prefix() {
@@ -120,6 +118,7 @@
         height: 100vh;
 
         .home_wrapper{
+            margin-top: 5vh;
             .home_name {
                 font-size: 30px;
                 font-weight: 700;
