@@ -1,19 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './Gallery.module.scss';
-import SideMenu from '../../components/side-menu/SideMenu';
-import ReactDOM from 'react-dom';
-
-const modalRoot = document.getElementById("imageModal"); 
-
-const ImageModal = ({ data, topPosition, onClose }) => {
-  return ReactDOM.createPortal((
-    <div onClick={onClose}
-      className={`${styles.modal_container} ${styles.invisible}`}
-      style={{ top: topPosition }}>
-      <img className={styles.modal_img} src={data.src} alt="gallery" />
-    </div>
-  ), modalRoot);
-}
+import ImageModal from './ImageModal';
+import Arrows from './Arrows';
 
 const Slide = ({ data,
                  setShowImageModal,
@@ -72,6 +60,7 @@ const Gallery = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translateX, setTranslateX] = useState('translateX(0)');
+  
   const picNumber = 20;
   const picNumberOnSlide = 5;
   const data = getPicsSrc(picNumber, picNumberOnSlide);
@@ -118,50 +107,17 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-      <div onClick={previousSlide} className={`${styles.carousel_arrow} ${styles.arrow_left}`}>
-        <svg
-          height="25px"
-          width="25px"
-          className="w-6 h-6 text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 8 14">
-          <path
-            stroke="#B2B2B2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1"
-            d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
-          />
-        </svg>
-      </div>
-      <div onClick={nextSlide} className={`${styles.carousel_arrow} ${styles.arrow_right}`}>
-        <svg
-          height="25px"
-          width="25px"
-          className="w-6 h-6 text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 8 14">
-          <path
-            stroke="#B2B2B2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1"
-            d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
-          />
-        </svg>
-      </div>
+      
+      <Arrows next={nextSlide} previous={previousSlide}/>
 
       <span className={styles.carousel_text}>
         #ДАРИ<span className={styles.highlight}>&nbsp;с удовольствием</span>
       </span>
       {
         showImageModal && <ImageModal
+          data={data}
           onClose={onClose} 
-          data={currentModalData}
+          currentData={currentModalData}
           topPosition={window.scrollY}/>
       }
     </section>
