@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './Home.module.scss';
 import ModalWindow from '../../components/modal-window/ModalWindow';
 import SVG from 'react-inlinesvg';

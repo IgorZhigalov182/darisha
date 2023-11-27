@@ -1,12 +1,9 @@
-import { useState } from 'react';
+import { lazy, useState } from 'react';
 import styles from './Gallery.module.scss';
 import ImageModal from './ImageModal';
 import Arrows from './Arrows';
 
-const Slide = ({ data,
-                 setShowImageModal,
-                 setCurrentModalData
-                }) => {
+const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
   const openModal = (src, index) => {
     setShowImageModal(true);
     setCurrentModalData({
@@ -18,12 +15,14 @@ const Slide = ({ data,
   };
 
   return (
-    <div 
-      className={styles.slider}>
+    <div className={styles.slider}>
       {data?.map((src, index) => (
-        <div key={index}
+        <div
+          key={index}
           className={styles.img_container}
-          onClick={() => {openModal(src, index)}}>
+          onClick={() => {
+            openModal(src, index);
+          }}>
           <img
             style={{ gridArea: `pic${index}` }}
             className={`${styles.img_cut} ${styles.img_animation}`}
@@ -43,7 +42,7 @@ const getPicsSrc = (picNumber, picNumberOnSlide) => {
     const scrs = [];
     for (let j = 0; j < picNumberOnSlide; j++) {
       scrs.push(
-        `../public/gallery/gallery_${i * Math.ceil(picNumber / picNumberOnSlide) + j + 1}.jpg`,
+        `../public/gallery/gallery_${i * Math.ceil(picNumber / picNumberOnSlide) + j + 1}.jpg`
       );
     }
     data.push(scrs);
@@ -60,7 +59,7 @@ const Gallery = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translateX, setTranslateX] = useState('translateX(0)');
-  
+
   const picNumber = 20;
   const picNumberOnSlide = 5;
   const data = getPicsSrc(picNumber, picNumberOnSlide);
@@ -99,16 +98,17 @@ const Gallery = () => {
       <div className={styles.carousel}>
         {data?.map((slide, index) => (
           <div style={{ transform: translateX }} className={styles.slider_container} key={index}>
-            <Slide 
+            <Slide
               setCurrentModalData={setCurrentModalData}
               setShowImageModal={setShowImageModal}
               data={slide}
-              index={index} />
+              index={index}
+            />
           </div>
         ))}
       </div>
-      
-      <Arrows next={nextSlide} previous={previousSlide}/>
+
+      <Arrows next={nextSlide} previous={previousSlide} />
 
       <span className={styles.carousel_text}>
         <div>
@@ -118,13 +118,14 @@ const Gallery = () => {
         </div>  
         <span className={styles.text_small}>"Дариша" - дари с удовольствием!</span>
       </span>
-      {
-        showImageModal && <ImageModal
+      {showImageModal && (
+        <ImageModal
           data={data}
-          onClose={onClose} 
+          onClose={onClose}
           currentData={currentModalData}
-          topPosition={window.scrollY}/>
-      }
+          topPosition={window.scrollY}
+        />
+      )}
     </section>
   );
 };
