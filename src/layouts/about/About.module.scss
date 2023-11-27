@@ -13,13 +13,16 @@
 }
 
 .title {
-    display: flex;
     padding: 0 10px;
     font-size: 1.85rem;
 }
 
 .second_title {
-    font-size: 1.6rem;
+    font-size: 1rem;
+}
+
+.highlight {
+    color: $green-highlight;
 }
 
 @media (max-width: 768px) {
@@ -60,7 +63,7 @@
 }
 
 .second_title {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 @media (max-width: 768px) {

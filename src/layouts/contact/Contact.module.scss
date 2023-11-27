@@ -13,9 +13,9 @@
 }
 
 .title {
-    display: flex;
     text-align: center;
     padding: 0 10px;
+    font-size: 1.8rem;
 }
 
 .dev_contacts {
@@ -28,6 +28,10 @@
     a {
         color: #63AA38;
     }
+}
+
+.highlight {
+    color: $green-highlight;
 }
 
 .contacts {
