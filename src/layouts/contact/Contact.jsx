@@ -12,8 +12,8 @@ const Contact = () => {
     <section className={styles.container} id="buy">
       <DotsBackground>
         <h1 className={styles.title}>
-          Наборы «Дариша» представлены на популярных торговых площадках. Ознакомиться с отзывами и
-          приобрести их вы сможете перейдя по ссылке ниже.
+          Наборы <span className={styles.highlight}>«Дариша»</span> представлены на популярных торговых площадках. <span className={styles.highlight}>Ознакомиться</span> с отзывами и
+          <span className={styles.highlight}>приобрести</span> их вы сможете перейдя по ссылке ниже.
         </h1>
         <div className={styles.contacts}>
           <a
@@ -32,7 +32,7 @@ const Contact = () => {
         </div>
       </DotsBackground>
       <div className={styles.dev_contacts}>
-        <h4>Сайт разработан:</h4>
+        <h4>site is created by </h4>
         <a href="https://t.me/IgorZhigalov">Igor Zhigalov</a>&
         <a href="https://t.me/geetork">Galina Li</a>
       </div>
