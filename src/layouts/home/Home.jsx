@@ -10,7 +10,7 @@ const Home = () => {
     <section className={style.home_section} id="home">
       <div className={style.home_wrapper}>
         <h1 className={style.home_name}>
-          Упаковать подарок <br /> оригинально? <br /> Легко!
+          Как упаковать подарок <br /> оригинально? <br /> Легко!
         </h1>
         {/* <h1 className={style.home_name}>
           <SVG
