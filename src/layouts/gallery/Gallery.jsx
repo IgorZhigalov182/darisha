@@ -84,9 +84,14 @@ const Gallery = () => {
   };
 
   const nextSlide = () => {
-    currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1
-      ? setTranslateX('translateX(0)')
-      : setTranslateX(`translateX(-${(currentSlide + 1) * 100}%)`);
+    if ( currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1 ) {
+      const firstSlide = data.pop();
+      data.push(firstSlide);
+      setTranslateX('translateX(0)');
+      //setTranslateX(`translateX(-${(currentSlide + 1) * 100}%)`);
+    } else {
+      setTranslateX(`translateX(-${(currentSlide + 1) * 100}%)`);
+    };
 
     currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1
       ? setCurrentSlide(0)
