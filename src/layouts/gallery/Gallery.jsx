@@ -122,8 +122,7 @@ const Gallery = () => {
         showImageModal && <ImageModal
           data={data}
           onClose={onClose} 
-          currentData={currentModalData}
-          topPosition={window.scrollY}/>
+          currentData={currentModalData}/>
       }
     </section>
   );

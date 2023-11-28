@@ -31,7 +31,7 @@ const InfoModal = ({ setShowInfoModal, children }) => {
 
 const modalRoot = document.getElementById("imageModal"); 
 
-const ImageModal = ({ data, currentData, topPosition, onClose }) => {
+const ImageModal = ({ data, currentData, onClose }) => {
     const [currentPic, setCurrentPic] = useState(data.flat().findIndex(src => src === currentData.src));
     const [translateX, setTranslateX] = useState(`translateX(-${currentPic * 100}%)`);
     const picNumber = data.flat().length;
@@ -43,7 +43,7 @@ const ImageModal = ({ data, currentData, topPosition, onClose }) => {
         setShowModal(false);
         setTimeout(() => {
             onClose();
-        }, 100);
+        }, 380);
     }; 
 
     const previousPic = () => {
@@ -75,7 +75,7 @@ const ImageModal = ({ data, currentData, topPosition, onClose }) => {
         <div
             className={`${styles.modal_container}
             ${showModal ? styles.modal_container_show : styles.modal_container_hide}`}
-            style={{ top: topPosition }}>
+            >
             <div className={styles.carousel}>
                 {
                     data.flat().map((src, index) => <img style={{ transform: translateX }} key={index}

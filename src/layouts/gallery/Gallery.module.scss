@@ -118,7 +118,8 @@
 }
 
 .modal_container {
-    position: absolute;
+    position: fixed;
+    top: 0;
     overflow-y: hidden;
     width: 100%;
     height: 100%;
@@ -130,11 +131,11 @@
 }
 
 .modal_container_show {
-    animation: scale-up 200ms;
+    animation: scale-up 400ms;
 }
 
 .modal_container_hide {
-    animation: scale-down 200ms;
+    animation: scale-down 400ms;
 }
 
 .modal_img {
@@ -231,19 +232,22 @@
 
 @keyframes scale-up {
     from {
-        transform: scale(3);
+        transform: scale(2);
+        opacity: 0;
     }
     to {
         transform: scale(1);
+        opacity: 1;
     }
 }
 
 @keyframes scale-down {
     from {
         transform: scale(1);
+        opacity: 1;
     }
     to {
-        transform: scale(3);
+        transform: scale(2);
         opacity: 0;
     }
 }
