@@ -1,6 +1,6 @@
 import DotsBackground from '../../components/section-dots-background/DotsBackground';
-import SVG from 'react-inlinesvg';
 import styles from './Contact.module.scss';
+import SVG from 'react-inlinesvg';
 import classNames from 'classnames';
 
 const Contact = () => {
@@ -15,7 +15,7 @@ const Contact = () => {
           Наборы <span className={styles.highlight}>«Дариша»</span> представлены на популярных торговых площадках. <span className={styles.highlight}>Ознакомиться</span> с отзывами и
           <span className={styles.highlight}> приобрести</span> их вы сможете перейдя по ссылке ниже
         </h1>
-        <div id='icons' className={styles.contacts}>
+        <div id="icons" className={styles.contacts}>
           <a
             target="_blank"
             href="https://www.ozon.ru/seller/darisha-658045/products/?miniapp=seller_658045">
