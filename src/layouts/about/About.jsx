@@ -8,7 +8,7 @@ const About = () => {
         <h1 className={styles.title}>
           Набор <span className={styles.highlight}>«Дариша»</span> это универсальное решение для <span className={styles.highlight}>оформления небольших подарков.</span> Вы без
           ножниц, скотча и клея <span className={styles.highlight}>самостоятельно</span> легко и быстро сможете <span className={styles.highlight}>упаковать</span>
-          сладости, сувениры, деньги и <span className={styles.highlight}>цветы</span> в горшке.
+          &nbsp;сладости, сувениры, деньги и <span className={styles.highlight}>цветы</span> в горшке
         </h1>
         <h3 className={styles.second_title}>«Дариша» - легко оформить, приятно дарить!</h3>
       </DotsBackground>
