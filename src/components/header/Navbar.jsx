@@ -17,15 +17,15 @@ const Navbar = () => {
   ]);
 
   useEffect(() => {
-    delayScrollToSection(sections);
-  }, [scroll]);
-
-  useEffect(() => {
     window.addEventListener('scroll', () => {
       setScroll(window.scrollY);
     });
     return () => window.removeEventListener('scroll', () => setScroll(window.scrollY));
   }, []);
+
+  useEffect(() => {
+    delayScrollToSection(sections);
+  }, [scroll]);
 
   const defineSection = (entries) => {
     entries.forEach((entry) => {
@@ -45,7 +45,7 @@ const Navbar = () => {
     });
   };
 
-  const observer = new IntersectionObserver(defineSection, { threshold: 0.8 });
+  const observer = new IntersectionObserver(defineSection, { threshold: 0.7 });
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,12 +58,6 @@ const Navbar = () => {
   const isTopOfPage = scroll < 5 && document.documentElement.clientWidth < 768;
   const navClass = classnames(isTopOfPage ? style.nav_top : style.mobile_nav);
 
-  /*
-    @params (
-      href - id section in DOM: string,
-      isMobileMode: bool 
-      )
-  */
   const scrollToSection = (href, isMobileMode) => {
     const marginSection = isMobileMode ? 0.1 : 0.1;
     const selectedHref = document.querySelector(href);
@@ -73,8 +67,8 @@ const Navbar = () => {
 
   const delayScrollToSection = (arr) => {
     clearTimeout(window.scrollTimer);
-    window.scrollTimer = setTimeout(function () {
-      const href = [...arr.filter(({ state }) => state)][0].href;
+    window.scrollTimer = setTimeout(() => {
+      const href = arr.filter(({ state }) => state)[0].href;
       scrollToSection(href);
     }, 1700);
   };
