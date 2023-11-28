@@ -2,12 +2,15 @@ import { lazy, useState } from 'react';
 import styles from './Gallery.module.scss';
 import ImageModal from './ImageModal';
 import Arrows from './Arrows';
+import mapData from './data';
 
 const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
-  const openModal = (src, index) => {
+  const openModal = (slide, index) => {
     setShowImageModal(true);
     setCurrentModalData({
-      src: src,
+      src: slide.src,
+      title: slide.title,
+      text: slide.text,
       slideNumber: index
     });
 
@@ -16,18 +19,18 @@ const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
 
   return (
     <div className={styles.slider}>
-      {data?.map((src, index) => (
+      {data?.map((it, index) => (
         <div
           key={index}
           className={styles.img_container}
           onClick={() => {
-            openModal(src, index);
+            openModal(it, index);
           }}>
           <img
             style={{ gridArea: `pic${index}` }}
             className={`${styles.img_cut} ${styles.img_animation}`}
-            alt="gallery"
-            src={src}
+            alt=""
+            src={it.src}
           />
         </div>
       ))}
@@ -36,13 +39,17 @@ const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
   );
 };
 
-const getPicsSrc = (picNumber, picNumberOnSlide) => {
+const getPicsSrc = (picNumber, picNumberOnSlide, mapData) => {
   const data = [];
   for (let i = 0; i < Math.ceil(picNumber / picNumberOnSlide); i++) {
     const scrs = [];
     for (let j = 0; j < picNumberOnSlide; j++) {
       scrs.push(
-        `../public/gallery/gallery_${i * Math.ceil(picNumber / picNumberOnSlide) + j + 1}.jpg`
+        {
+          src: `../public/gallery/${mapData[i * picNumberOnSlide + j]?.src}`,
+          title: mapData[i * picNumberOnSlide + j]?.title,
+          text: mapData[i * picNumberOnSlide + j]?.text,
+        }
       );
     }
     data.push(scrs);
@@ -54,15 +61,17 @@ const Gallery = () => {
   const [showImageModal, setShowImageModal] = useState(false);
   const [currentModalData, setCurrentModalData] = useState({
     src: null,
+    title: null,
+    text: null,
     slideNumber: null
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [translateX, setTranslateX] = useState('translateX(0)');
 
-  const picNumber = 20;
+  const picNumber = mapData.length;
   const picNumberOnSlide = 5;
-  const data = getPicsSrc(picNumber, picNumberOnSlide);
+  const data = getPicsSrc(picNumber, picNumberOnSlide, mapData);
 
   const previousSlide = () => {
     currentSlide === 0
@@ -121,8 +130,10 @@ const Gallery = () => {
       {showImageModal && (
         <ImageModal
           data={data}
+          srcData={mapData}
           onClose={onClose} 
           currentData={currentModalData}
+          setCurrentData={setCurrentModalData}
         />
       )}
     </section>
