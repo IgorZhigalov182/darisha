@@ -17,7 +17,13 @@ const Navbar = () => {
   ]);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => setScroll(window.scrollY));
+    delayScrollToSection(sections);
+  }, [scroll]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setScroll(window.scrollY);
+    });
     return () => window.removeEventListener('scroll', () => setScroll(window.scrollY));
   }, []);
 
@@ -39,7 +45,7 @@ const Navbar = () => {
     });
   };
 
-  const observer = new IntersectionObserver(defineSection, { threshold: 0.5 });
+  const observer = new IntersectionObserver(defineSection, { threshold: 0.8 });
 
   useEffect(() => {
     setTimeout(() => {
@@ -63,6 +69,14 @@ const Navbar = () => {
     const selectedHref = document.querySelector(href);
     const yStartCoord = selectedHref.offsetTop - window.innerHeight * marginSection;
     window.scroll(0, yStartCoord);
+  };
+
+  const delayScrollToSection = (arr) => {
+    clearTimeout(window.scrollTimer);
+    window.scrollTimer = setTimeout(function () {
+      const href = [...arr.filter(({ state }) => state)][0].href;
+      scrollToSection(href);
+    }, 1700);
   };
 
   return (
