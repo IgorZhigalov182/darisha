@@ -2,6 +2,18 @@ import DotsBackground from '../../components/section-dots-background/DotsBackgro
 import styles from './About.module.scss';
 
 const About = () => {
+  const options = {
+    root: document.getElementById('about'),
+    rootMargin: "20px",
+    threshold: 1.0,
+  };
+
+  const callback = function (entries, observer) {
+    console.log('hello');
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
   return (
     <section className={styles.container} id="about">
       <DotsBackground>

@@ -40,6 +40,7 @@
 
 .text_container {
     grid-area: desc;
+    border: 0;
 }
 
 .img_cut {
@@ -204,6 +205,24 @@
 
 .text_small {
     font-size: 14px;
+    color: $dark-grey;
+}
+
+.info_modal_title {
+    color: $green-highlight;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.info_modal_content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    line-height: 1.5rem;
+} 
+
+.info_modal_text {
     color: $dark-grey;
 }
 

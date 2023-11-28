@@ -22,7 +22,7 @@ const InfoModal = ({ setShowInfoModal, children }) => {
                     <path stroke="#5E5E5E" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                 </svg>
             </div>
-            <div>
+            <div className={styles.info_modal_content}>
                 {children}
             </div>
         </div>
@@ -31,8 +31,8 @@ const InfoModal = ({ setShowInfoModal, children }) => {
 
 const modalRoot = document.getElementById("imageModal"); 
 
-const ImageModal = ({ data, currentData, onClose }) => {
-    const [currentPic, setCurrentPic] = useState(data.flat().findIndex(src => src === currentData.src));
+const ImageModal = ({ data, srcData, currentData, setCurrentData, onClose }) => {
+    const [currentPic, setCurrentPic] = useState(data.flat().findIndex(it => it.src === currentData.src));
     const [translateX, setTranslateX] = useState(`translateX(-${currentPic * 100}%)`);
     const picNumber = data.flat().length;
 
@@ -46,6 +46,15 @@ const ImageModal = ({ data, currentData, onClose }) => {
         }, 380);
     }; 
 
+    const changeCurrentData = () => {
+        setCurrentData({
+            src: srcData[currentPic]?.src,
+            title: srcData[currentPic]?.title,
+            text: srcData[currentPic]?.text,
+            slideNumber: currentPic
+        });
+    };
+
     const previousPic = () => {
         currentPic === 0 ?
             setTranslateX(`translateX(0)`) :
@@ -54,6 +63,8 @@ const ImageModal = ({ data, currentData, onClose }) => {
         currentPic === 0 ?
             setCurrentPic(picNumber - 1) :
             setCurrentPic(currentPic - 1);
+        
+        changeCurrentData();
     };
 
     const nextPic = () => {
@@ -64,6 +75,8 @@ const ImageModal = ({ data, currentData, onClose }) => {
         currentPic === picNumber - 1 ?
             setCurrentPic(0) :
             setCurrentPic(currentPic + 1);
+
+        changeCurrentData();
     };
 
     useEffect(() => {
@@ -78,15 +91,18 @@ const ImageModal = ({ data, currentData, onClose }) => {
             >
             <div className={styles.carousel}>
                 {
-                    data.flat().map((src, index) => <img style={{ transform: translateX }} key={index}
-                        className={`${styles.slider_container} ${styles.modal_img}`} src={src} alt="gallery" />
+                    data.flat().map((it, index) => <img style={{ transform: translateX }} key={index}
+                        className={`${styles.slider_container} ${styles.modal_img}`} src={it.src} alt="" />
                     )
                 }
             </div>
             <SideMenu onClose={onCloseWithAnimation} showInfoModal={showInfoModal} setShowInfoModal={setShowInfoModal}/>
             <Arrows next={nextPic} previous={previousPic} />
             {
-                showInfoModal && <InfoModal setShowInfoModal={setShowInfoModal}></InfoModal>
+                showInfoModal && <InfoModal setShowInfoModal={setShowInfoModal}>
+                    <span className={styles.info_modal_title}>{currentData.title}</span>
+                    <span className={styles.info_modal_text}>{currentData.text}</span>
+                </InfoModal>
             }
         </div>
     ), modalRoot);
