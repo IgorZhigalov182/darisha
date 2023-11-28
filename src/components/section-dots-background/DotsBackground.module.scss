@@ -40,14 +40,15 @@
     width: 25%;
 }
 
-// @media (max-width: 768px) {
-//     .left_dots, .right_dots {
-//         // height: 80%;
-//         // align-self: center;
-//         // margin-top: 30px;
-//         // margin-bottom: 30px;
-//     }
-// }
+@media (max-width: 768px) {
+    .left_dots, .right_dots {
+        height: 80%;
+        top: calc(10%);
+        // align-self: center;
+        // margin-top: 30px;
+        // margin-bottom: 30px;
+    }
+}
 
 // @media (max-width: 576px) {
 //   .contacts {
