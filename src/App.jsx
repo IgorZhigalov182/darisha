@@ -4,7 +4,7 @@ import '../src/styles/App.css';
 import Navbar from './components/header/Navbar';
 import About from './layouts/about/About';
 import Contact from './layouts/contact/Contact';
-import Home from './layouts/home/Home';
+import Home from './layouts/home/Home.jsx';
 import Gallery from './layouts/gallery/Gallery';
 
 function App() {
