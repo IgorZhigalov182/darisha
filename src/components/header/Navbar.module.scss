@@ -22,6 +22,10 @@ nav {
             width: 75px;
             height: 55px;
             margin-bottom: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
         
         .nav_ul_wrapper {
