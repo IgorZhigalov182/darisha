@@ -45,7 +45,7 @@ const getPicsSrc = (picNumber, picNumberOnSlide, mapData) => {
     const scrs = [];
     for (let j = 0; j < picNumberOnSlide; j++) {
       scrs.push({
-        src: `../public/gallery/${mapData[i * picNumberOnSlide + j]?.src}`,
+        src: `/imgs/gallery/${mapData[i * picNumberOnSlide + j]?.src}`,
         title: mapData[i * picNumberOnSlide + j]?.title,
         text: mapData[i * picNumberOnSlide + j]?.text
       });
