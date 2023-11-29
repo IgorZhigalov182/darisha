@@ -45,14 +45,14 @@ const Navbar = () => {
     });
   };
 
-  const observer = new IntersectionObserver(defineSection, { threshold: 0.7 });
+  const observer = new IntersectionObserver(defineSection, { threshold: 0.65 });
 
   useEffect(() => {
     setTimeout(() => {
       const sectionsAll = document.querySelectorAll('section');
 
       sectionsAll.forEach((section) => observer.observe(section));
-    }, 800);
+    }, 600);
   }, []);
 
   const isTopOfPage = scroll < 5 && document.documentElement.clientWidth < 768;
