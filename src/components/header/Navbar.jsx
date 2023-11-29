@@ -76,11 +76,17 @@ const Navbar = () => {
   return (
     <nav className={navClass}>
       <div className={style.nav_wrapper}>
-        <div className={style.nav_logo}>
+        <div className={style.nav_logo} onClick={() => scrollToSection('#home')}>
           {isTopOfPage && (
-            <SVG className={style.nav_logo_svg} src={'/imgs/logo/Darisha_logo_wight.svg'} />
+            <SVG
+              onClick={() => scrollToSection('#home')}
+              className={style.nav_logo_svg}
+              src={'/imgs/logo/Darisha_logo_wight.svg'}
+            />
           )}
-          {!isTopOfPage && <SVG src={'/imgs/logo/logo_black.svg'}></SVG>}
+          {!isTopOfPage && (
+            <SVG onClick={() => scrollToSection('#home')} src={'/imgs/logo/logo_black.svg'}></SVG>
+          )}
         </div>
         <div className={style.nav_ul_wrapper}>
           <ul className={style.nav_ul}>
