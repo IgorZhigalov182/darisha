@@ -70,7 +70,7 @@ const Navbar = () => {
     window.scrollTimer = setTimeout(() => {
       const href = arr.filter(({ state }) => state)[0]?.href || null;
       href ? scrollToSection(href) : '';
-    }, 1300);
+    }, 600);
   };
 
   return (
