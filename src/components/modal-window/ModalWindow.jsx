@@ -2,16 +2,13 @@ import { useEffect } from 'react';
 import './ModalWindow.scss';
 
 const ModalWindow = ({ active, setActive, children }) => {
-  const handleCancelBack = (e) => {
-    e.preventDefault();
-  };
+  history.pushState(null, null, location.href); // Push new history entry to stack
+  history.back(); // Back to pevious page
+  history.forward(); // Forward to next page
 
-  useEffect(() => {
-    if (active) {
-      window.addEventListener('popstate', handleCancelBack);
-    }
-    window.removeEventListener('popstate', handleCancelBack);
-  }, [active]);
+  window.addEventListener('popstate', () => {
+    history.go(1);
+  });
 
   return (
     <div
