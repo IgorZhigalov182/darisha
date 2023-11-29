@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import '../src/styles/reset.css';
 import '../src/styles/App.css';
 import Navbar from './components/header/Navbar';
@@ -18,22 +18,13 @@ function App() {
     }
   }, []);
 
-  const LazyGallery = lazy(() => import('../src/layouts/gallery/Gallery.jsx'));
-  const LazyContact = lazy(() => import('../src/layouts/contact/Contact.jsx'));
-
   return (
     <>
       <Home />
       <Navbar />
       <About />
-      <Suspense fallback={<h1>loading...</h1>}>
-        <LazyGallery />
-      </Suspense>
-      <Suspense fallback={<h1>loading...</h1>}>
-        <LazyContact />
-      </Suspense>
-      {/* <Gallery /> */}
-      {/* <Contact /> */}
+      <Gallery />
+      <Contact />
     </>
   );
 }
