@@ -44,13 +44,11 @@ const getPicsSrc = (picNumber, picNumberOnSlide, mapData) => {
   for (let i = 0; i < Math.ceil(picNumber / picNumberOnSlide); i++) {
     const scrs = [];
     for (let j = 0; j < picNumberOnSlide; j++) {
-      scrs.push(
-        {
-          src: `../public/gallery/${mapData[i * picNumberOnSlide + j]?.src}`,
-          title: mapData[i * picNumberOnSlide + j]?.title,
-          text: mapData[i * picNumberOnSlide + j]?.text,
-        }
-      );
+      scrs.push({
+        src: `../public/gallery/${mapData[i * picNumberOnSlide + j]?.src}`,
+        title: mapData[i * picNumberOnSlide + j]?.title,
+        text: mapData[i * picNumberOnSlide + j]?.text
+      });
     }
     data.push(scrs);
   }
@@ -84,14 +82,11 @@ const Gallery = () => {
   };
 
   const nextSlide = () => {
-    if ( currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1 ) {
-      const firstSlide = data.pop();
-      data.push(firstSlide);
+    if (currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1) {
       setTranslateX('translateX(0)');
-      //setTranslateX(`translateX(-${(currentSlide + 1) * 100}%)`);
     } else {
       setTranslateX(`translateX(-${(currentSlide + 1) * 100}%)`);
-    };
+    }
 
     currentSlide === Math.ceil(picNumber / picNumberOnSlide) - 1
       ? setCurrentSlide(0)
@@ -129,14 +124,14 @@ const Gallery = () => {
           <span>Оригинальная</span>
           <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
           <span>&nbsp;Открытки и лента в комплекте!</span>
-        </div>  
+        </div>
         <span className={styles.text_small}>&laquo;Дариша&raquo; - дари с удовольствием!</span>
       </span>
       {showImageModal && (
         <ImageModal
           data={data}
           srcData={mapData}
-          onClose={onClose} 
+          onClose={onClose}
           currentData={currentModalData}
           setCurrentData={setCurrentModalData}
         />
