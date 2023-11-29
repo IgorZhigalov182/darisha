@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url(../../public/home_main.jpg);
+    background-image: url(./home_main.jpg);
     // filter: brightness(60%);
     height: 90vh;
     background-size: cover;
@@ -143,21 +143,6 @@
         opacity: 0;
     }
 }
-
-// @keyframes fade{
-//     0% {
-//         box-shadow: 0 0 0 0 rgb(172, 167, 167, 0.7);
-//     }
-//     40% {
-//         box-shadow: 0 0 0 25px rgb(172, 167, 167, 0);
-//     }
-//     80% {
-//         box-shadow: 0 0 0 25 rgb(172, 167, 167, 0);
-//     }
-//     100% {
-//         box-shadow: 0 0 0 0 rgb(172, 167, 167, 0);
-//     }
-// }
 
 @keyframes scroll-down {
     0% {
