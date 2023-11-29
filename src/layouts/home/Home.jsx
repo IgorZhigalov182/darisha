@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import style from './Home.module.scss';
 import ModalWindow from '../../components/modal-window/ModalWindow';
 import SVG from 'react-inlinesvg';
@@ -12,11 +12,6 @@ const Home = () => {
         <h1 className={style.home_name}>
           Как упаковать подарок <br /> оригинально? <br /> Легко!
         </h1>
-        {/* <h1 className={style.home_name}>
-          <SVG
-            style={{ marginTop: '-250px', width: '300px', height: '200px' }}
-            src="../public/logo.svg"></SVG>
-        </h1> */}
         <div className={style.home_play} onClick={() => setActive(!active)}>
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>

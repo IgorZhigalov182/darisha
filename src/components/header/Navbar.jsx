@@ -10,7 +10,7 @@ const Navbar = () => {
   const [active, setActive] = useState(false);
   const [scroll, setScroll] = useState(0);
   const [sections, setActiveSection] = useState([
-    { name: 'главная', state: true, href: '#home' },
+    { name: 'главная', state: false, href: '#home' },
     { name: 'О НАБОРЕ', state: false, href: '#about' },
     { name: 'УПАКОВАТЬ', state: false, href: '#gallery' },
     { name: 'КУПИТЬ', state: false, href: '#buy' }
@@ -52,7 +52,7 @@ const Navbar = () => {
       const sectionsAll = document.querySelectorAll('section');
 
       sectionsAll.forEach((section) => observer.observe(section));
-    }, 500);
+    }, 800);
   }, []);
 
   const isTopOfPage = scroll < 5 && document.documentElement.clientWidth < 768;
@@ -68,9 +68,9 @@ const Navbar = () => {
   const delayScrollToSection = (arr) => {
     clearTimeout(window.scrollTimer);
     window.scrollTimer = setTimeout(() => {
-      const href = arr.filter(({ state }) => state)[0].href;
-      scrollToSection(href);
-    }, 1700);
+      const href = arr.filter(({ state }) => state)[0]?.href || null;
+      href ? scrollToSection(href) : '';
+    }, 1300);
   };
 
   return (
