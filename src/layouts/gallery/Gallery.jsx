@@ -1,8 +1,10 @@
-import { lazy, useState } from 'react';
+import { lazy, useEffect, useId, useRef, useState } from 'react';
 import styles from './Gallery.module.scss';
 import ImageModal from './ImageModal';
 import Arrows from './Arrows';
 import mapData from './data';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import 'swiper/css';
 
 const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
   const openModal = (slide, index) => {
@@ -104,38 +106,48 @@ const Gallery = () => {
 
   return (
     <section className={styles.container} id="gallery">
-      <div className={styles.carousel}>
-        {data?.map((slide, index) => (
-          <div style={{ transform: translateX }} className={styles.slider_container} key={index}>
-            <Slide
-              setCurrentModalData={setCurrentModalData}
-              setShowImageModal={setShowImageModal}
-              data={slide}
-              index={index}
-            />
-          </div>
-        ))}
-      </div>
-
-      <Arrows next={nextSlide} previous={previousSlide} />
-
-      <span className={styles.carousel_text}>
-        <div>
-          <span>Оригинальная</span>
-          <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
-          <span>&nbsp;Открытки и лента в комплекте!</span>
+      <Swiper loop={true} className="mySwiper">
+        <div className={styles.carousel}>
+          {data?.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div
+                style={{ transform: translateX }}
+                className={styles.slider_container}
+                key={index}>
+                <Slide
+                  setCurrentModalData={setCurrentModalData}
+                  setShowImageModal={setShowImageModal}
+                  data={slide}
+                  index={index}
+                  key={index}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
         </div>
-        <span className={styles.text_small}>&laquo;Дариша&raquo; - дари с удовольствием!</span>
-      </span>
-      {showImageModal && (
-        <ImageModal
-          data={data}
-          srcData={mapData}
-          onClose={onClose}
-          currentData={currentModalData}
-          setCurrentData={setCurrentModalData}
-        />
-      )}
+
+        {document.documentElement.clientWidth > 768 && (
+          <Arrows next={nextSlide} previous={previousSlide} />
+        )}
+
+        <span className={styles.carousel_text}>
+          <div>
+            <span>Оригинальная</span>
+            <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
+            <span>&nbsp;Открытки и лента в комплекте!</span>
+          </div>
+          <span className={styles.text_small}>&laquo;Дариша&raquo; - дари с удовольствием!</span>
+        </span>
+        {showImageModal && (
+          <ImageModal
+            data={data}
+            srcData={mapData}
+            onClose={onClose}
+            currentData={currentModalData}
+            setCurrentData={setCurrentModalData}
+          />
+        )}
+      </Swiper>
     </section>
   );
 };
