@@ -24,7 +24,9 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    delayScrollToSection(sections);
+    if (document.documentElement.clientWidth > 768) {
+      delayScrollToSection(sections);
+    }
   }, [scroll]);
 
   const defineSection = (entries) => {
