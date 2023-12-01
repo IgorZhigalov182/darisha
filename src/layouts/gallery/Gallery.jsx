@@ -104,11 +104,12 @@ const Gallery = () => {
     document.body.style.overflow = 'auto';
   };
 
-  const isMobile = document.documentElement.clientWidth <= 768;
-
   return (
     <section className={styles.container} id="gallery">
-      <Swiper loop={true} className="mySwiper" allowTouchMove={isMobile}>
+      <Swiper
+        loop={true}
+        className="mySwiper"
+        allowTouchMove={document.documentElement.clientWidth <= 768}>
         <div className={styles.carousel}>
           {data?.map((slide, index) => (
             <SwiperSlide key={index}>
@@ -127,12 +128,10 @@ const Gallery = () => {
             </SwiperSlide>
           ))}
         </div>
-
         {document.documentElement.clientWidth > 768 && (
           <Arrows next={nextSlide} previous={previousSlide} />
         )}
-
-        <span className={styles.carousel_text}>
+        <span className={styles.carousel_text} style={{ zIndex: 10 }}>
           <div>
             <span>Оригинальная</span>
             <span className={styles.highlight}>&nbsp;упаковка для подарка.</span>
