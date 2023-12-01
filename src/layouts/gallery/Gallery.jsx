@@ -104,9 +104,11 @@ const Gallery = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const isMobile = document.documentElement.clientWidth <= 768;
+
   return (
     <section className={styles.container} id="gallery">
-      <Swiper loop={true} className="mySwiper">
+      <Swiper loop={true} className="mySwiper" allowTouchMove={isMobile}>
         <div className={styles.carousel}>
           {data?.map((slide, index) => (
             <SwiperSlide key={index}>
