@@ -7,6 +7,7 @@
     font-size: 24px;
     color: $primary;
     font-weight: 600;
+    -webkit-user-select: none;
 }
 
 .carousel {
@@ -163,6 +164,7 @@
     display: flex;
     justify-content: center;
     opacity: 0.9;
+    z-index: 1000;
 }
 
 .sidemenu_item:hover {
@@ -325,6 +327,63 @@
     .text_small {
         font-size: 10px;
     }
+
+    .carousel_arrow {
+        background-color: transparent;
+
+        svg {
+            fill: black;
+            pointer-events: none;
+        }
+
+        path {
+            fill: transparent;
+            stroke: white;
+        }
+    }
+
+    .carousel_arrow.arrow_right_modal {
+        background-color: $light-grey-with-opacity;
+    }
+
+    .arrow_left:hover,
+    .arrow_right:hover,
+    .arrow_left svg:hover,
+    .arrow_right svg:hover {
+        background-color: transparent;
+        cursor:auto;
+    }
+
+    .arrow_left.arrow_right_modal:hover,
+    .arrow_right.arrow_right_modal:hover,
+    .arrow_left.arrow_right_modal svg:hover,
+    .arrow_right.arrow_right_modal svg:hover {
+        cursor: pointer;
+        background-color: $light-grey-with-opacity;
+    }
+
+    .arrow_left {
+        left: 8px;
+    }
+    
+    .arrow_right {
+        right: 8px;
+    }
+
+
+    // Стили для листания страниц с открытой информацией
+    // .arrow_right_modal {
+    //     width: 50px;
+    //     height: 50px;
+    //     border-radius: 50px;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     position: absolute;
+    //     background-color: $light-grey-with-opacity;
+    //     top: calc(50% - 25px);
+    //     z-index: 2221;
+    // }
 }
 
 @media (max-width: 400px) {
@@ -346,7 +405,6 @@
         font-size: 8px;
     }
 }
-
 
 .hide {
     display: none;

@@ -11,7 +11,7 @@ const Navbar = () => {
   const [scroll, setScroll] = useState(0);
   const [sections, setActiveSection] = useState([
     { name: 'главная', state: false, href: '#home' },
-    { name: 'О НАБОРЕ', state: false, href: '#about' },
+    { name: 'О НАС', state: false, href: '#about' },
     { name: 'УПАКОВАТЬ', state: false, href: '#gallery' },
     { name: 'КУПИТЬ', state: false, href: '#buy' }
   ]);
@@ -23,11 +23,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', () => setScroll(window.scrollY));
   }, []);
 
+  /** Анимация перемещения к ближайшей секции
   useEffect(() => {
     if (document.documentElement.clientWidth > 768) {
       delayScrollToSection(sections);
     }
   }, [scroll]);
+   */
 
   const defineSection = (entries) => {
     entries.forEach((entry) => {

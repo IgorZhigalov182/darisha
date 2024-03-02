@@ -1,9 +1,17 @@
 import styles from './Gallery.module.scss';
 
 const Arrows = ({ next, previous }) => {
+  const isDesktop = document.documentElement.clientWidth > 600;
+  const bodyElement = document.body;
+  const bodyOverflow = window.getComputedStyle(bodyElement).overflow;
+
   return (
     <>
-      <div onClick={previous} className={`${styles.carousel_arrow} ${styles.arrow_left}`}>
+      <div
+        onClick={isDesktop || bodyOverflow === 'hidden' ? previous : null}
+        className={`${styles.carousel_arrow} ${styles.arrow_left} ${
+          bodyOverflow === 'hidden' ? styles.arrow_right_modal : ''
+        }`}>
         <svg
           height="25px"
           width="25px"
@@ -21,7 +29,11 @@ const Arrows = ({ next, previous }) => {
           />
         </svg>
       </div>
-      <div onClick={next} className={`${styles.carousel_arrow} ${styles.arrow_right}`}>
+      <div
+        onClick={isDesktop || bodyOverflow === 'hidden' ? next : null}
+        className={`${styles.carousel_arrow} ${styles.arrow_right} ${
+          bodyOverflow === 'hidden' ? styles.arrow_right_modal : ''
+        }`}>
         <svg
           height="25px"
           width="25px"

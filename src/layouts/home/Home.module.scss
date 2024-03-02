@@ -12,13 +12,22 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-image: url('/public/imgs/home_main.jpg');
-    background-size: cover ;
-    background-repeat: no-repeat;
-    background-position: center center;
+    // background-image: url('/public/imgs/home_main.jpg');
+    // background-size: cover ;
+    // background-repeat: no-repeat;
+    // background-position: center center;
     height: 90vh;
     max-width: 100%;
     overflow: hidden;
+
+    .main_img {
+        position: absolute;
+        margin-top: 0;
+        height: 100vh;
+        z-index: -10000;
+        width:100%;
+        object-fit: cover;
+    }
 
     .home_wrapper {
         display: flex;
@@ -65,7 +74,6 @@
         }
 
         .home_tag {
-            text-transform: uppercase;
             margin-top: 3rem;
         }
     }
@@ -113,6 +121,11 @@
     }
 }
 
+@media (max-width: 900px) {
+    .home_name {
+        font-size: 2rem !important;
+    }
+}
 
 @media (max-width: 768px) {
     .home_section {

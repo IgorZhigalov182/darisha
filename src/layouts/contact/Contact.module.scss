@@ -9,7 +9,25 @@
     font-size: 44px;
     color: $dark-grey;
     font-weight: 600;
-    position: relative
+    position: relative;
+
+    h2 {
+        font-size: 1.15rem;
+    }
+}
+
+.cooperation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+.anchor {
+    color: $dark-grey;
 }
 
 .title {
@@ -49,6 +67,7 @@
     font-size: 16px;
     color: $dark-grey;
     z-index: 500;
+    align-items: center;
     
     .shops_logo {
         width: 110px;
@@ -70,20 +89,62 @@
         height: 17px;
         margin-top: 1px;
     }
+
+    .flowwow {
+        height: 25px;
+        margin-bottom: 3px;
+    }
 }
 
+@media (max-width: 900px) {
+    .title {
+        font-size: 1rem !important;
+    }
+
+    .cooperation>h3 {
+        font-size: 0.9rem !important;
+    }
+
+    .dev_contacts {
+        bottom: -5rem;
+        font-size: 0.7rem;
+    }
+}
 
 @media (max-width: 768px) {
     .container {
         padding: 20px;
+
+        h2 {
+            font-size: 1rem;
+        } 
+
     }
 
     .title {
         font-size: 1.4rem;
     }
+
+    .cooperation {
+        h3 {
+            font-size: 0.8rem
+        }
+    }
+
+    .dev_contacts {
+        bottom: -5rem;
+        font-size: 0.7rem;
+    }
 }
 
 @media (max-width: 576px) {
+  .container {
+
+    h2 {
+        font-size: 0.8rem;
+    }
+  }  
+
   .contacts {
     display: flex;
     gap: 25px;
@@ -93,28 +154,14 @@
   .title {
     font-size: 1.15rem;
   }
-}
 
-@media (max-width: 800px) {
-    .container {
-        font-size: 30px;
+  .cooperation {
+    h3 {
+        font-size: 0.75rem
     }
 }
 
-@media (max-width: 600px) {
-    .container {
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 800px) {
-    .container {
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        font-size: 25px;
+    .dev_contacts {
+        bottom: -3rem
     }
 }
