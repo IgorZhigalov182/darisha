@@ -128,9 +128,10 @@ const Gallery = () => {
             </SwiperSlide>
           ))}
         </div>
-        {document.documentElement.clientWidth > 768 && (
+        {/* {document.documentElement.clientWidth > 768 && (
           <Arrows next={nextSlide} previous={previousSlide} />
-        )}
+        )} */}
+        <Arrows next={nextSlide} previous={previousSlide} />
         <span className={styles.carousel_text} style={{ zIndex: 10 }}>
           <div>
             <span>Оригинальная</span>

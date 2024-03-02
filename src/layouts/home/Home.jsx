@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <section className={style.home_section} id="home">
+      <img className={style.main_img} src="/public/imgs/home_main.jpg" />
       <div className={style.home_wrapper}>
         <h1 className={style.home_name}>
           Как упаковать подарок <br /> оригинально? <br /> Легко!

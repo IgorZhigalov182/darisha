@@ -60,4 +60,14 @@
         // margin-top: 30px;
         // margin-bottom: 30px;
     }
+
+    .content {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .content {
+        gap: 30px;
+    }
 }

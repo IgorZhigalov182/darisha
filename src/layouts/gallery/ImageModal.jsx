@@ -70,7 +70,7 @@ const ImageModal = ({ data, srcData, currentData, setCurrentData, onClose }) => 
 
     currentPic === 0 ? setCurrentPic(picNumber - 1) : setCurrentPic(currentPic - 1);
 
-    changeCurrentData();
+    // changeCurrentData();
   };
 
   const nextPic = () => {
@@ -80,8 +80,12 @@ const ImageModal = ({ data, srcData, currentData, setCurrentData, onClose }) => 
 
     currentPic === picNumber - 1 ? setCurrentPic(0) : setCurrentPic(currentPic + 1);
 
-    changeCurrentData();
+    // changeCurrentData();
   };
+
+  useEffect(() => {
+    changeCurrentData();
+  }, [currentPic]);
 
   useEffect(() => {
     document.getElementById('icons').style.display = 'none';
