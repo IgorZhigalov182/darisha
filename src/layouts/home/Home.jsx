@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import style from './Home.module.scss';
 import ModalWindow from '../../components/modal-window/ModalWindow';
-import SVG from 'react-inlinesvg';
 
 const Home = () => {
   const [active, setActive] = useState(false);
 
   return (
     <section className={style.home_section} id="home">
-      <img className={style.main_img} src="/public/imgs/home_main.jpg" />
+      <img className={style.main_img} src="/imgs/home_main.jpg" />
       <div className={style.home_wrapper}>
         <h1 className={style.home_name}>
           Как упаковать подарок <br /> оригинально? <br /> Легко!
