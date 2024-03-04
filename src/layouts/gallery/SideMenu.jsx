@@ -4,7 +4,9 @@ const SideMenu = ({ onClose, setShowInfoModal }) => {
   const showHideInfoModal = () => setShowInfoModal(true);
 
   const svgStyle = {
-    fill: '#5f5f5f'
+    fill: '#5f5f5f',
+    width: '29px',
+    height: '29px'
   };
 
   return (
