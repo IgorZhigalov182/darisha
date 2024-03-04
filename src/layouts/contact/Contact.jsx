@@ -49,18 +49,27 @@ const DevContacts = () => {
 };
 
 const Cooperation = () => {
+  // const tgStyles = classNames(styles.shops_logo);
+  // const vkStyles = classNames(styles.shops_logo);
+
   return (
     <div className={styles.cooperation}>
-      <h3>Будем рады сотрудничеству</h3>
-      <h3>
-        <a className={styles.anchor} target="_blank" href="https://vk.com/darishapresents">
-          https://vk.com/darishapresents
+      <div className={styles.coop_info}>
+        <h3>Будем рады сотрудничеству</h3>
+        <h3>+7 (993)-276-13-26</h3>
+        <h3>
+          darishapresents@yandex.ru <br />
+        </h3>
+      </div>
+      <h3>Мы в социальных сетях</h3>
+      <div className={styles.cooperation_social}>
+        <a target="_blank" href="https://vk.com/darishapresents">
+          <SVG className={styles.coop_social_logo} src="/imgs/logo/vk_logo.svg" />
         </a>
-      </h3>
-      <h3>
-        darishapresents@yandex.ru <br />
-      </h3>
-      <h3>+7 (993)-276-13-26</h3>
+        <a target="_blank" href="https://t.me/darishapresentsguide">
+          <SVG className={styles.coop_social_logo} src="/imgs/logo/tg_logo.svg" />
+        </a>
+      </div>
     </div>
   );
 };

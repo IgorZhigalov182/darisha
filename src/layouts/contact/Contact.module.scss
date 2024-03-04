@@ -1,149 +1,162 @@
 @import '../../styles/variables.scss';
 
 .container {
-    width: 100%;
-    height: $section-height;
-    display: flex;
-    justify-content: center;
-    padding: 100px;
-    font-size: 44px;
-    color: $dark-grey;
-    font-weight: 600;
-    position: relative;
+  width: 100%;
+  height: $section-height;
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+  font-size: 44px;
+  color: $dark-grey;
+  font-weight: 600;
+  position: relative;
 
-    h2 {
-        font-size: 1.15rem;
-    }
+  h2 {
+    font-size: 1.15rem;
+  }
 }
 
 .cooperation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .coop_info {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
-    h3 {
-        font-size: 1rem;
+  h3 {
+    font-size: 1rem;
+  }
+
+  .cooperation_social {
+    display: flex;
+
+    .coop_social_logo {
+      display: flex;
+      gap: 10px;
+      margin: 5px;
+      height: 1.75rem;
+      text-align: center;
     }
+  }
 }
 
 .anchor {
-    color: $dark-grey;
+  color: $dark-grey;
 }
 
 .title {
-    text-align: center;
-    padding: 0 10px;
-    font-size: 1.8rem;
-    color: $dark-grey;
+  text-align: center;
+  padding: 0 10px;
+  font-size: 1.8rem;
+  color: $dark-grey;
 }
 
 .dev_contacts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  gap: 5px;
+  font-size: 12px;
+
+  .authors {
     display: flex;
     gap: 5px;
-    font-size: 12px;
+  }
 
-    .authors {
-        display: flex;
-        gap: 5px;
-    }
-
-    a {
-        color: #63AA38;
-    }
+  a {
+    color: #63aa38;
+  }
 }
 
 .highlight {
-    color: $green-highlight;
+  color: $green-highlight;
 }
 
 .contacts {
-    display: flex;
-    gap: 20px;
-    font-size: 16px;
-    color: $dark-grey;
-    z-index: 500;
-    align-items: center;
-    
-    .shops_logo {
-        width: 110px;
-        height: 20px;
-        text-align: center;
-    }
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  color: $dark-grey;
+  z-index: 500;
+  align-items: center;
 
-    .wb {
-        margin-left: 3px;
-    }
+  .shops_logo {
+    width: 110px;
+    height: 20px;
+    text-align: center;
+  }
 
-    .ym {
-        height: 21px;
-        margin-top: -2px;
-        margin-left: 5px;
-    }
+  .wb {
+    margin-left: 3px;
+  }
 
-    .ozon {
-        height: 17px;
-        margin-top: 1px;
-    }
+  .ym {
+    height: 21px;
+    margin-top: -2px;
+    margin-left: 5px;
+  }
 
-    .flowwow {
-        height: 25px;
-        margin-bottom: 3px;
-    }
+  .ozon {
+    height: 17px;
+    margin-top: 1px;
+  }
+
+  .flowwow {
+    height: 25px;
+    margin-bottom: 3px;
+  }
 }
 
 @media (max-width: 900px) {
-    .title {
-        font-size: 1rem !important;
-    }
+  .title {
+    font-size: 0.8rem !important;
+  }
 
-    .cooperation>h3 {
-        font-size: 0.9rem !important;
-    }
+  .cooperation > h3 {
+    font-size: 0.9rem !important;
+  }
 
-    .dev_contacts {
-        bottom: -5rem;
-        font-size: 0.7rem;
-    }
+  .dev_contacts {
+    bottom: -5rem;
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
+  .container {
+    padding: 20px;
 
-        h2 {
-            font-size: 1rem;
-        } 
-
+    h2 {
+      font-size: 1rem;
     }
+  }
 
-    .title {
-        font-size: 1.4rem;
+  .cooperation {
+    h3 {
+      font-size: 0.8rem;
     }
+  }
 
-    .cooperation {
-        h3 {
-            font-size: 0.8rem
-        }
-    }
-
-    .dev_contacts {
-        bottom: -5rem;
-        font-size: 0.7rem;
-    }
+  .dev_contacts {
+    bottom: -5rem;
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 576px) {
   .container {
-
     h2 {
-        font-size: 0.8rem;
+      font-size: 0.8rem;
     }
-  }  
+  }
 
   .contacts {
     display: flex;
@@ -157,11 +170,11 @@
 
   .cooperation {
     h3 {
-        font-size: 0.75rem
+      font-size: 0.75rem;
     }
-}
+  }
 
-    .dev_contacts {
-        bottom: -3rem
-    }
+  .dev_contacts {
+    bottom: -3rem;
+  }
 }
