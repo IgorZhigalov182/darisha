@@ -1,9 +1,9 @@
-import { lazy, useEffect, useId, useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './Gallery.module.scss';
 import ImageModal from './ImageModal';
 import Arrows from './Arrows';
 import mapData from './data';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const Slide = ({ data, setShowImageModal, setCurrentModalData }) => {
