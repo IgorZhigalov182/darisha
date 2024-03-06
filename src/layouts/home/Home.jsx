@@ -3,7 +3,7 @@ import style from './Home.module.scss';
 import ModalWindow from '../../components/modal-window/ModalWindow';
 
 const Home = () => {
-  const [active, setActive] = useState(false);
+  const [videoActive, setVideoActive] = useState(false);
 
   return (
     <section className={style.home_section} id="home">
@@ -12,7 +12,7 @@ const Home = () => {
         <h1 className={style.home_name}>
           Как упаковать подарок <br /> оригинально? <br /> Легко!
         </h1>
-        <div className={style.home_play} onClick={() => setActive(!active)}>
+        <div className={style.home_play} onClick={() => setVideoActive(!videoActive)}>
           <i className="fa-regular fa-circle-play fa-2xl" style={{ fontSize: '4rem' }}></i>
         </div>
         <h5 className={style.home_tag} style={{ textAlign: 'center' }}>
@@ -26,8 +26,8 @@ const Home = () => {
           <div className={style.home_scrol_line}></div>
         </div>
       </div>
-      <ModalWindow active={active} setActive={setActive}>
-        {active && (
+      <ModalWindow active={videoActive} setActive={setVideoActive}>
+        {videoActive && (
           <iframe
             loading="lazy"
             width="100%"

@@ -1,73 +1,75 @@
 @import '../../styles/variables.scss';
 
 .content {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
 .vertical_line {
-    height: 45px;
-    width: 1px;
-    border-left: 1px solid $dark-grey;
-    left: 50%;
+  height: 45px;
+  width: 1px;
+  border-left: 1px solid $dark-grey;
+  left: 50%;
 }
 
 .right_dots {
-    position: absolute;
-    top: 0;
-    left: 0;
-	background-image: radial-gradient(#CCCCCC 1px, transparent 1px);
-    background-position: 0 0;
-    background-size: 30px 30px;
-    height: 100%;
-    width: 25%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: radial-gradient(#cccccc 1px, transparent 1px);
+  background-position: 0 0;
+  background-size: 30px 30px;
+  height: 100%;
+  width: 25%;
+  z-index: -100;
 }
 
 .left_dots {
-    position: absolute;
-    top: 0;
-    right: 0;
-	background-image: radial-gradient(#CCCCCC 1px, transparent 1px);
-    background-position: 0 0;
-    background-size: 30px 30px;
-    height: 100%;
-    width: 25%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: radial-gradient(#cccccc 1px, transparent 1px);
+  background-position: 0 0;
+  background-size: 30px 30px;
+  height: 100%;
+  width: 25%;
+  z-index: -100;
 }
 
 @media (max-width: 340px) {
-    .vertical_line, .right_dots, .left_dots {
-        display: none;
-    }
+  .vertical_line,
+  .right_dots,
+  .left_dots {
+    display: none;
+  }
 }
 
 @media (max-width: 550px) {
-    .vertical_line {
-        display: none;
-    }
+  .vertical_line {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-    .left_dots, .right_dots {
-        height: 80%;
-        top: calc(10%);
-        // align-self: center;
-        // margin-top: 30px;
-        // margin-bottom: 30px;
-    }
+  .left_dots,
+  .right_dots {
+    height: 80%;
+    top: calc(10%);
+  }
 
-    .content {
-        gap: 50px;
-    }
+  .content {
+    gap: 50px;
+  }
 }
 
 @media (max-width: 900px) {
-    .content {
-        gap: 30px;
-    }
+  .content {
+    gap: 30px;
+  }
 }

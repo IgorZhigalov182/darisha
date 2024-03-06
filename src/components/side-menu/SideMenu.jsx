@@ -1,5 +1,3 @@
-import style from './SideMenu.module.scss';
-
 const SideMenu = () => {
   return (
     <aside>

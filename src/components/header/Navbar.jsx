@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './Navbar.module.scss';
 import './Animation.scss';
 import classnames from 'classnames';
@@ -69,13 +69,13 @@ const Navbar = () => {
     window.scroll(0, yStartCoord);
   };
 
-  const delayScrollToSection = (arr) => {
-    clearTimeout(window.scrollTimer);
-    window.scrollTimer = setTimeout(() => {
-      const href = arr.filter(({ state }) => state)[0]?.href || null;
-      href ? scrollToSection(href) : '';
-    }, 600);
-  };
+  // const delayScrollToSection = (arr) => {
+  //   clearTimeout(window.scrollTimer);
+  //   window.scrollTimer = setTimeout(() => {
+  //     const href = arr.filter(({ state }) => state)[0]?.href || null;
+  //     href ? scrollToSection(href) : '';
+  //   }, 600);
+  // };
 
   return (
     <nav className={navClass}>
