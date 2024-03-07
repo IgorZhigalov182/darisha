@@ -49,9 +49,6 @@ const DevContacts = () => {
 };
 
 const Cooperation = () => {
-  // const tgStyles = classNames(styles.shops_logo);
-  // const vkStyles = classNames(styles.shops_logo);
-
   return (
     <div className={styles.cooperation}>
       <div className={styles.coop_info}>
